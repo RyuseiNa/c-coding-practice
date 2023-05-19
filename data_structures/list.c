@@ -36,6 +36,30 @@ void addLast(Node** head, int data) {
 
     current->next = newNode;
 }
+//nodeを削除
+void deleteNode(Node** head,int data){
+    if(*head==NULL){
+        return;
+    }
+    if((*head)->data==data){
+        Node* temp = *head;
+        *head = (*head)->next;
+        free(temp);
+        return;
+    }
+    Node* current = *head;
+    Node* prev = NULL;
+    while(current!=NULL&&current->data!=data){
+        prev=current;
+        current = current->next;
+    }
+    if(current==NULL){
+        return;
+    }
+    prev->next = current->next;
+    free(current);
+    return;
+}
 
 // リストを一覧表示
 void printList(Node* head) {
@@ -64,7 +88,10 @@ int main() {
     addLast(&myList, 20);
     addFirst(&myList, 5);
     addFirst(&myList, 2);
+    printf("List: ");
+    printList(myList);
 
+    deleteNode(&myList,2);
     printf("List: ");
     printList(myList);
 
