@@ -21,14 +21,7 @@ Node* insertNode(Node* root,int data){
         if(){
 
         }else{
-            
+
         }
     }
-}
-
-void addNode(){
-
-}
-void removeNode(){
-
 }
