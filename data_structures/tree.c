@@ -53,7 +53,7 @@ void postorderTraversal(Node* root){
 void freeTree(Node* root){
     if(root!=NULL){
         freeTree(root->left);
-        freeTree(root->left);
+        freeTree(root->right);
         free(root);
     }
 }
@@ -82,7 +82,6 @@ int main(){
     postorderTraversal(root);
     printf("\n");
 
-    // メモリを解放
     freeTree(root);
 
     return 0;
